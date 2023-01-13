@@ -13,20 +13,20 @@ export default function InitialScreen({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <Image style={style.image} source={Logo} resizeMode="contain" />
-      <View style={{paddingTop: 100}}>
-      <TouchableOpacity style={style.buttonRegister}>
-        <Text style={[style.bottonText, {color: '#FFFFFF'}]}>CADASTRAR</Text>
-      </TouchableOpacity>
+      <View style={{ paddingTop: 100 }}>
+        <TouchableOpacity style={style.buttonRegister} onPress={() => navigation.navigate("Register")}>
+          <Text style={[style.bottonText, { color: '#FFFFFF' }]}>CADASTRAR</Text>
+        </TouchableOpacity>
       </View>
-      <View style={{paddingTop: 30}}>
-      <TouchableOpacity style={style.buttonLogin}>
-        <Text style={[style.bottonText, {color: '#560464'}]}>ENTRAR</Text>
-      </TouchableOpacity>
+      <View style={{ paddingTop: 30 }}>
+        <TouchableOpacity style={style.buttonLogin} onPress={() => navigation.navigate("Login")}>
+          <Text style={[style.bottonText, { color: '#3D0128' }]}>ENTRAR</Text>
+        </TouchableOpacity>
       </View>
-      <View style={{paddingTop: 30}}>
-      <TouchableOpacity>
-      <Text style={[style.bottonText, {color: '#EA0B41'}]}>Convidado</Text>
-      </TouchableOpacity>
+      <View style={{ paddingTop: 30 }}>
+        <TouchableOpacity onPress={() => navigation.navigate("NewPassword")}>
+          <Text style={[style.bottonText, { color: '#EFD741' }]}>Convidado</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -37,7 +37,7 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    backgroundColor: '#560464',
+    backgroundColor: '#3D0128',
     alignItems: 'center',
     justifyContent: 'center'
   },
