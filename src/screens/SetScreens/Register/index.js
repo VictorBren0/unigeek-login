@@ -81,7 +81,7 @@ export default function Register({ navigation }) {
         />
         </View>
         <View style={{ paddingTop: 80 }}>
-        <TouchableOpacity style={style.button} onPress={() => navigation.navigate("Register")}>
+        <TouchableOpacity style={style.button} onPress={() => navigation.navigate("Login")}>
           <Text style={[style.bottonText, { color: '#3D0128' }]}>CADASTRAR</Text>
         </TouchableOpacity>
       </View>

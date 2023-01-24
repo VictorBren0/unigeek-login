@@ -24,7 +24,7 @@ export default function InitialScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={{ paddingTop: 30 }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Drawer")}>
           <Text style={[style.bottonText, { color: '#EFD741' }]}>Convidado</Text>
         </TouchableOpacity>
       </View>
