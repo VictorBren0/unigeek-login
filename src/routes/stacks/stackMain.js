@@ -9,6 +9,7 @@ import Register from '../../screens/SetScreens/Register'
 import ForgotPassword from '../../screens/SetScreens/ForgotPassword'
 import NewPassword from '../../screens/SetScreens/NewPassord'
 import Home from '../../screens/UserScreens/Home';
+import Drawer from './Drawer'
 
 
 
@@ -29,6 +30,7 @@ export default function Stack({navigation}) {
       <Screen name="Register" component={Register} />
       <Screen name="ForgotPassword" component={ForgotPassword} />
       <Screen name="NewPassword" component={NewPassword} />
+      <Screen name="Drawer" component={Drawer} />
       <Screen name="Home" component={Home} />
     </Navigator>
   );
