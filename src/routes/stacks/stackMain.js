@@ -31,7 +31,7 @@ export default function Stack({navigation}) {
       <Screen name="ForgotPassword" component={ForgotPassword} />
       <Screen name="NewPassword" component={NewPassword} />
       <Screen name="Drawer" component={Drawer} />
-      <Screen name="Home" component={Home} />
+      <Screen name="Home" component={Home}  />
     </Navigator>
   );
 }
