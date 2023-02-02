@@ -1763,7 +1763,7 @@
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.5.tgz"
   "version" "15.7.5"
 
-"@types/react-native-vector-icons@^6.4.10", "@types/react-native-vector-icons@^6.4.5":
+"@types/react-native-vector-icons@^6.4.10":
   "integrity" "sha512-gSXtv3NMOsRwSXJ/gvGebm7CNjHbkeFKCse9h/Pvi+x2yjCLOkJR1FBfec06DhaFJpsK7Y8WRQpwOS0eLqx5Rg=="
   "resolved" "https://registry.npmjs.org/@types/react-native-vector-icons/-/react-native-vector-icons-6.4.12.tgz"
   "version" "6.4.12"
@@ -6106,13 +6106,6 @@
   "integrity" "sha512-8/C0htHrFWeUm9N8JegmadovUfgTWkGBkDPZ1N3YkXtDWb+98Ya2gThiKcu445r8c7YhcrBfnHz/mYsXIusaOQ=="
   "resolved" "https://registry.npmjs.org/react-native-size-matters/-/react-native-size-matters-0.4.0.tgz"
   "version" "0.4.0"
-
-"react-native-textinput-effects@^0.6.3":
-  "integrity" "sha512-WGLKR0cshSRTS2+65WFfHmU26UHKoNQQzqe1H1agUSiO3WUJvKTLGZu6DMrwLko90tjuWt2RQsXINs6iFFe2mg=="
-  "resolved" "https://registry.npmjs.org/react-native-textinput-effects/-/react-native-textinput-effects-0.6.3.tgz"
-  "version" "0.6.3"
-  dependencies:
-    "@types/react-native-vector-icons" "^6.4.5"
 
 "react-native-vector-icons@^9.2.0", "react-native-vector-icons@>7.0.0":
   "integrity" "sha512-wKYLaFuQST/chH3AJRjmOLoLy3JEs1JR6zMNgTaemFpNoXs0ztRnTxcxFD9xhX7cJe1/zoN5BpQYe7kL0m5yyA=="

@@ -3,7 +3,6 @@ import {NavigationContainer} from '@react-navigation/native';
 import Stack from './stacks/stackMain';
 import StackAdm from './stacks/stackAdm';
 import UserStack from './stacks/stackUser';
-import Drawer from './stacks/Drawer';
 
 export default function () {
   const auth = true
