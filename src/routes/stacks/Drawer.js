@@ -1,17 +1,12 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-//Screens//
-//ScreensInital//
+//Drawer//
 import Home from '../../screens/UserScreens/Home';
-import stack from './stackMain'
 
 
 
-//Screens ADM//
 
-
-//Screens Users//
 
 
 
@@ -39,3 +34,5 @@ export default function MyDrawer({navigation}) {
     </Drawer.Navigator>
   );
 }
+
+

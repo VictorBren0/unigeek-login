@@ -7,9 +7,11 @@ import InitialScreen from '../../screens/SetScreens/InitialScreen'
 import Login from '../../screens/SetScreens/Login'
 import Register from '../../screens/SetScreens/Register'
 import ForgotPassword from '../../screens/SetScreens/ForgotPassword'
-import NewPassword from '../../screens/SetScreens/NewPassord'
+import NewPassword from '../../screens/SetScreens/NewPassword'
 import Home from '../../screens/UserScreens/Home';
 import Drawer from './Drawer'
+import DrawerMap from './DrawerMap';
+import Map from '../../screens/MapScreens/Map';
 
 
 
@@ -31,7 +33,9 @@ export default function Stack({navigation}) {
       <Screen name="ForgotPassword" component={ForgotPassword} />
       <Screen name="NewPassword" component={NewPassword} />
       <Screen name="Drawer" component={Drawer} />
+      <Screen name="DrawerMap" component={DrawerMap} />
       <Screen name="Home" component={Home}  />
+      <Screen name="Map" component={Map}  />
     </Navigator>
   );
 }
