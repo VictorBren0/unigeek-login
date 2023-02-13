@@ -1,3 +1,4 @@
+import { PinchGestureHandler, State } from 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import {
   Text,
@@ -13,11 +14,13 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { getMaps } from '../../services/api';
 
 
+
 export default function Map({ navigation }) {
 
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
   const [listMap, setListMap] = useState([]);
+  const [zoomFactor, setZoomFactor] = useState(1);
 
   const getMap = async () => {
     const response = await getMaps();
@@ -28,17 +31,22 @@ export default function Map({ navigation }) {
     getMap()
   }, [])
 
+  const handleZoom = () => {
+    setZoomFactor(zoomFactor + 0.1);
+  }
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{padding: 30}}>
-      <Text style={styles.titleText}>
-        Selecione o local desejado:
-      </Text>
+      <View style={{ padding: 30 }}>
+        <Text style={styles.titleText}>
+          Selecione o local desejado:
+        </Text>
       </View>
 
       <FlatList
         data={listMap}
         horizontal
+        showsHorizontalScrollIndicator={false}
         keyExtractor={item => `${item.id}`}
         renderItem={({ item }) => (
           <TouchableOpacity
@@ -51,13 +59,22 @@ export default function Map({ navigation }) {
           </TouchableOpacity>
         )}
       />
-      <View style={{flex: 10}}>
-      {selectedId && (
-        <Image
-        source={{ uri: `http://192.168.100.8:3000/uploads/${selectedItem}` }}
-        style={{ width: 360, height: 140, resizeMode: 'contain'}}
-      />
-      )}
+      <View style={{ flex: 10 }}>
+        {selectedId && (
+          <PinchGestureHandler
+            onGestureEvent={({ nativeEvent }) => setZoomFactor(nativeEvent.scale)}
+            onHandlerStateChange={({ nativeEvent }) => {
+              if (nativeEvent.state === State.END) {
+                setZoomFactor(1);
+              }
+            }}
+          >
+            <Image
+              source={{ uri: `http://192.168.100.8:3000/uploads/${selectedItem}` }}
+              style={{ width: 360, height: 140, resizeMode: 'contain', transform: [{ scale: zoomFactor }] }}
+            />
+          </PinchGestureHandler>
+        )}
       </View>
 
 
