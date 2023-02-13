@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Text,
   Image,
@@ -10,25 +10,23 @@ import {
   Button
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { getMaps } from '../../services/api';
 
-const data = [
-  { id: '1', title: 'Estacionamento' },
-  { id: '2', title: 'Terreo' },
-  { id: '3', title: '1º andar' },
-  { id: '4', title: '2º andar' },
-  { id: '5', title: '3º andar' },
-  { id: '6', title: '4º andar' },
-  { id: '7', title: '5º andar' },
-  { id: '8', title: '6º andar' },
-  { id: '9', title: '7º andar' },
-  { id: '10', title: '8º andar' },
-  { id: '11', title: '9º andar' },
-  { id: '12', title: 'Mesanino' },
-];
 
 export default function Map({ navigation }) {
 
+  const [selectedItem, setSelectedItem] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
+  const [listMap, setListMap] = useState([]);
+
+  const getMap = async () => {
+    const response = await getMaps();
+    setListMap(response.data);
+  }
+
+  useEffect(() => {
+    getMap()
+  }, [])
 
   return (
     <SafeAreaView style={styles.container}>
@@ -39,25 +37,26 @@ export default function Map({ navigation }) {
       </View>
 
       <FlatList
-        data={data}
+        data={listMap}
         horizontal
-        keyExtractor={item => item.id}
+        keyExtractor={item => `${item.id}`}
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.button}
-            onPress={() => setSelectedId(item.id)}
+            onPress={() => setSelectedId(item.id, setSelectedItem(item.file))}
           >
             <Text style={[styles.buttonText, item.id === selectedId ? styles.selectedButtonText : null]}>
-              {item.title}
+              {item.floor}
             </Text>
           </TouchableOpacity>
         )}
       />
-      <View>
+      <View style={{flex: 10}}>
       {selectedId && (
-        <Text style={{ fontSize: 20, color: '#111' }}>
-          {data.find(item => item.id === selectedId).title}
-        </Text>
+        <Image
+        source={{ uri: `http://192.168.100.8:3000/uploads/${selectedItem}` }}
+        style={{ width: 360, height: 140, resizeMode: 'contain'}}
+      />
       )}
       </View>
 
