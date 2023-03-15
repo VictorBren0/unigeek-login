@@ -8,20 +8,12 @@ import {
   StyleSheet,
   TextInput,
   ScrollView,
-  Dimensions,
-  Alert
+  Dimensions 
 } from 'react-native';
-import Logo from '../../assets/image/LOGO.png';
+import Logo from '../assets/image/LOGO.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
-
-export default function ForgotPassword({ navigation }) {
-  const Alerta = () =>
-Alert.alert('Atenção', 'Você receberá um email contendo todas as informações para recuperar sua senha!', [
-
-  {text: 'OK', onPress: () => navigation.navigate("InitialScreen")},
-]);
+export default function Login({ navigation }) {
   return (
     <ScrollView style={{height: "100%"}}>
     <SafeAreaView style={styles.container}>
@@ -36,23 +28,38 @@ Alert.alert('Atenção', 'Você receberá um email contendo todas as informaçõ
       </TouchableOpacity>
       <Image style={styles.image} source={Logo} resizeMode="contain" />
       <View style={{ paddingTop: 100 }}/>
-      <Text style={styles.text}>Você receberá por email um link para cadastrar uma nova senha!</Text>
-      <View style={{flexDirection: 'row', paddingTop: 50 }}>
+      <View style={{flexDirection: 'row' }}>
       <Icon
-          name={'email'}
+          name={'person'}
           size={35}
           color={'#FFFFFF'}
           style={styles.icon}
         />
         <TextInput
-          placeholder="EMAIL"
+          placeholder="USUÁRIO"
           placeholderTextColor="#FFFFFF"
           style={styles.input}
           />
         </View>
-        <View style={{ paddingTop: 130 }}>
-        <TouchableOpacity style={styles.button} onPress={Alerta}>
-          <Text style={[styles.bottonText, { color: '#3D0128' }]}>ENVIAR</Text>
+        <View style={{ paddingTop: 35, flexDirection: 'row' }}>
+        <Icon
+          name={'lock'}
+          size={35}
+          color={'#FFFFFF'}
+          style={styles.icon}
+        />
+        <TextInput
+          placeholder="SENHA"
+          placeholderTextColor="#FFFFFF"
+          style={styles.input}
+        />
+        </View>
+        <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
+        <Text style={styles.text}>Esqueceu a senha?</Text>
+        </TouchableOpacity>
+        <View style={{ paddingTop: 100 }}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("InitialScreen")}>
+          <Text style={[styles.bottonText, { color: '#3D0128' }]}>ENTRAR</Text>
         </TouchableOpacity>
       </View>
         
@@ -107,11 +114,10 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'Rubik-Regular',
-    fontSize: 18,
+    fontSize: 16,
     color: '#EFD741',
-    width: 334,
-    height: 50,
-    textAlign: 'center'
+    paddingTop: 40,
+    paddingLeft: 150
   }
 
 });

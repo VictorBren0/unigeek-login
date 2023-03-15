@@ -8,12 +8,20 @@ import {
   StyleSheet,
   TextInput,
   ScrollView,
-  Dimensions 
+  Dimensions,
+  Alert
 } from 'react-native';
-import Logo from '../../assets/image/LOGO.png';
+import Logo from '../assets/image/LOGO.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function NewPassword({ navigation }) {
+
+
+export default function ForgotPassword({ navigation }) {
+  const Alerta = () =>
+Alert.alert('Atenção', 'Você receberá um email contendo todas as informações para recuperar sua senha!', [
+
+  {text: 'OK', onPress: () => navigation.navigate("InitialScreen")},
+]);
   return (
     <ScrollView style={{height: "100%"}}>
     <SafeAreaView style={styles.container}>
@@ -28,36 +36,23 @@ export default function NewPassword({ navigation }) {
       </TouchableOpacity>
       <Image style={styles.image} source={Logo} resizeMode="contain" />
       <View style={{ paddingTop: 100 }}/>
-      <Text style={styles.text}>Digite a sua nova senha!</Text>
-      <View style={{ paddingTop: 20, flexDirection: 'row' }}>
-        <Icon
-          name={'lock'}
+      <Text style={styles.text}>Você receberá por email um link para cadastrar uma nova senha!</Text>
+      <View style={{flexDirection: 'row', paddingTop: 50 }}>
+      <Icon
+          name={'email'}
           size={35}
           color={'#FFFFFF'}
           style={styles.icon}
         />
         <TextInput
-          placeholder="SENHA"
+          placeholder="EMAIL"
           placeholderTextColor="#FFFFFF"
           style={styles.input}
-        />
+          />
         </View>
-        <View style={{ paddingTop: 20, flexDirection: 'row' }}>
-        <Icon
-          name={'lock'}
-          size={35}
-          color={'#FFFFFF'}
-          style={styles.icon}
-        />
-        <TextInput
-          placeholder="COMFIRME SUA SENHA"
-          placeholderTextColor="#FFFFFF"
-          style={styles.input}
-        />
-        </View>
-        <View style={{ paddingTop: 100 }}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
-          <Text style={[styles.bottonText, { color: '#3D0128' }]}>CONFIRMAR</Text>
+        <View style={{ paddingTop: 130 }}>
+        <TouchableOpacity style={styles.button} onPress={Alerta}>
+          <Text style={[styles.bottonText, { color: '#3D0128' }]}>ENVIAR</Text>
         </TouchableOpacity>
       </View>
         

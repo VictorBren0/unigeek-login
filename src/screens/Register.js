@@ -10,10 +10,10 @@ import {
   ScrollView,
   Dimensions 
 } from 'react-native';
-import Logo from '../../assets/image/LOGO.png';
+import Logo from '../assets/image/LOGO.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Login({ navigation }) {
+export default function Register({ navigation }) {
   return (
     <ScrollView style={{height: "100%"}}>
     <SafeAreaView style={styles.container}>
@@ -27,9 +27,22 @@ export default function Login({ navigation }) {
         />
       </TouchableOpacity>
       <Image style={styles.image} source={Logo} resizeMode="contain" />
-      <View style={{ paddingTop: 100 }}/>
+      <View style={{ paddingTop: 80 }}/>
       <View style={{flexDirection: 'row' }}>
       <Icon
+          name={'email'}
+          size={35}
+          color={'#FFFFFF'}
+          style={styles.icon}
+        />
+        <TextInput
+          placeholder="EMAIL"
+          placeholderTextColor="#FFFFFF"
+          style={styles.input}
+          />
+        </View>
+        <View style={{ paddingTop: 20, flexDirection: 'row' }}>
+        <Icon
           name={'person'}
           size={35}
           color={'#FFFFFF'}
@@ -39,9 +52,9 @@ export default function Login({ navigation }) {
           placeholder="USUÁRIO"
           placeholderTextColor="#FFFFFF"
           style={styles.input}
-          />
+        />
         </View>
-        <View style={{ paddingTop: 35, flexDirection: 'row' }}>
+        <View style={{ paddingTop: 20, flexDirection: 'row' }}>
         <Icon
           name={'lock'}
           size={35}
@@ -54,12 +67,22 @@ export default function Login({ navigation }) {
           style={styles.input}
         />
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("ForgotPassword")}>
-        <Text style={styles.text}>Esqueceu a senha?</Text>
-        </TouchableOpacity>
-        <View style={{ paddingTop: 100 }}>
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Register")}>
-          <Text style={[styles.bottonText, { color: '#3D0128' }]}>ENTRAR</Text>
+        <View style={{ paddingTop: 20, flexDirection: 'row' }}>
+        <Icon
+          name={'lock'}
+          size={35}
+          color={'#FFFFFF'}
+          style={styles.icon}
+        />
+        <TextInput
+          placeholder="COMFIRME SUA SENHA"
+          placeholderTextColor="#FFFFFF"
+          style={styles.input}
+        />
+        </View>
+        <View style={{ paddingTop: 80 }}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("InitialScreen")}>
+          <Text style={[styles.bottonText, { color: '#3D0128' }]}>CADASTRAR</Text>
         </TouchableOpacity>
       </View>
         
@@ -91,7 +114,7 @@ const styles = StyleSheet.create({
   },
   back: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 40,
     right: 140
   },
   icon: {

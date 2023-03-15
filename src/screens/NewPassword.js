@@ -10,10 +10,10 @@ import {
   ScrollView,
   Dimensions 
 } from 'react-native';
-import Logo from '../../assets/image/LOGO.png';
+import Logo from '../assets/image/LOGO.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Register({ navigation }) {
+export default function NewPassword({ navigation }) {
   return (
     <ScrollView style={{height: "100%"}}>
     <SafeAreaView style={styles.container}>
@@ -27,34 +27,9 @@ export default function Register({ navigation }) {
         />
       </TouchableOpacity>
       <Image style={styles.image} source={Logo} resizeMode="contain" />
-      <View style={{ paddingTop: 80 }}/>
-      <View style={{flexDirection: 'row' }}>
-      <Icon
-          name={'email'}
-          size={35}
-          color={'#FFFFFF'}
-          style={styles.icon}
-        />
-        <TextInput
-          placeholder="EMAIL"
-          placeholderTextColor="#FFFFFF"
-          style={styles.input}
-          />
-        </View>
-        <View style={{ paddingTop: 20, flexDirection: 'row' }}>
-        <Icon
-          name={'person'}
-          size={35}
-          color={'#FFFFFF'}
-          style={styles.icon}
-        />
-        <TextInput
-          placeholder="USUÁRIO"
-          placeholderTextColor="#FFFFFF"
-          style={styles.input}
-        />
-        </View>
-        <View style={{ paddingTop: 20, flexDirection: 'row' }}>
+      <View style={{ paddingTop: 100 }}/>
+      <Text style={styles.text}>Digite a sua nova senha!</Text>
+      <View style={{ paddingTop: 20, flexDirection: 'row' }}>
         <Icon
           name={'lock'}
           size={35}
@@ -80,9 +55,9 @@ export default function Register({ navigation }) {
           style={styles.input}
         />
         </View>
-        <View style={{ paddingTop: 80 }}>
+        <View style={{ paddingTop: 100 }}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
-          <Text style={[styles.bottonText, { color: '#3D0128' }]}>CADASTRAR</Text>
+          <Text style={[styles.bottonText, { color: '#3D0128' }]}>CONFIRMAR</Text>
         </TouchableOpacity>
       </View>
         
@@ -114,7 +89,7 @@ const styles = StyleSheet.create({
   },
   back: {
     position: 'absolute',
-    bottom: 40,
+    bottom: 50,
     right: 140
   },
   icon: {
@@ -137,10 +112,11 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'Rubik-Regular',
-    fontSize: 16,
+    fontSize: 18,
     color: '#EFD741',
-    paddingTop: 40,
-    paddingLeft: 150
+    width: 334,
+    height: 50,
+    textAlign: 'center'
   }
 
 });

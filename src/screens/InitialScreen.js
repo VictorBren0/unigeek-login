@@ -7,7 +7,7 @@ import {
   View,
   StyleSheet
 } from 'react-native';
-import Logo from '../../assets/image/LOGO.png';
+import Logo from '../assets/image/LOGO.png';
 
 export default function InitialScreen({ navigation }) {
   return (
@@ -24,7 +24,7 @@ export default function InitialScreen({ navigation }) {
         </TouchableOpacity>
       </View>
       <View style={{ paddingTop: 30 }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Drawer")}>
+        <TouchableOpacity>
           <Text style={[styles.bottonText, { color: '#EFD741' }]}>Convidado</Text>
         </TouchableOpacity>
       </View>
